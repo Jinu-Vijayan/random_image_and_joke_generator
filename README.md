@@ -47,6 +47,7 @@ This Node.js server built with Express.js fetches a random image from the Unspla
 ## Environment Variables
 
 - UNSPLASH_ACCESS_KEY: Your Unsplash access key.
+- API_NINJA_X_API_KEY = Your Api ninja access key
 
 ## Running the Server
 
