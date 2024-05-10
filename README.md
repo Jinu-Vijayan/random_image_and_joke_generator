@@ -12,19 +12,26 @@ This Node.js server built with Express.js fetches a random image from the Unspla
 3) Create a .env file in the root directory with the following content:
     ```
     UNSPLASH_ACCESS_KEY=YOUR_UNSPLASH_ACCESS_KEY
+    API_NINJA_X_API_KEY = YOUR_API_NINJA_X_API_KEY
     ```
 
 4) Replace `YOUR_UNSPLASH_ACCESS_KEY` with your actual Unsplash access key.
 
-5) Run the server using `npm start`
+5) Replace `YOUR_API_NINJA_X_API_KEY` with your actual Api ninja x_api_key
+
+6) Run the server using `npm start`
 
 ## Endpoints
 
 - ### GET /random-image
     - Fetches a random image from the Unsplash API.
     - Requires a valid Unsplash access key.
-    - Returns the URL of the random image.
+    - Returns an object with URLs of the random image.
 
+- ### GET /dad-joke
+    - Fetches a random dad joke from the api ninja api
+    - Require a valid Api ninja access key
+    - Returns an object with a random dad joke
 ## Error Handling
 
 - If an internal server error occurs, a 500 status with a message will be returned.
