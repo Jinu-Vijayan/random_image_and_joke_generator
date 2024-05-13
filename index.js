@@ -1,6 +1,7 @@
 const express = require("express");
 const axios = require("axios");
 const dotenv = require("dotenv");
+const fs = require("fs");
 
 dotenv.config();
 
@@ -23,8 +24,20 @@ app.get("/random-image",async (req,res)=>{
             }
         });
 
-        res.status(200).json(resp.data.urls);
+        const imageUrl = resp.data.urls.full;
 
+        const imageData = await axios({
+            method:"get",
+            url : imageUrl,
+            responseType: 'arraybuffer'
+        })
+
+        res.set({
+            'Content-Type': 'image/png',
+            'Content-Length': imageData.data.length
+        });
+        
+        res.status(200).send(imageData.data);
     }catch(error){
         console.log(error);
         res.status(500).json({
